@@ -1,11 +1,13 @@
 <h1> All The People You Follow</h1>
+<a href= "/user/:id" class= "signup button">Return to your Profile</a>
+<a href= "/" class="signup button">Return to the Newsfeed</a>
 
 <main role="main">
-  <ul class="user_list">
-    <%@tweets.each do |user_tweet| %>
-      <li class= "tweet_list">
-        <span class="tweet_writer"><%=user_tweet.user.handle%></span>
-        <span class="tweet_text"><%=user_tweet.post%></span>
+  <ul class="follower_list">
+    <%@user.following.each do |followed| %>
+      <li class= "follow_list">
+        <span class="tweet_writer"><%=followed.first_name%><%=followed.last_name</span>
+        <span class="tweet_text"><%=followed.handle%></span>
       </li>
     <%end%>
   </ul>

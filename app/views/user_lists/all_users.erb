@@ -1,0 +1,12 @@
+<h1> All Lil' Twitter Users</h1>
+
+<main role="main">
+  <ul class="complete-user-list">
+    <%@users.each do |user_info| %>
+      <li class= "user-list">
+        <span class="user-name"><%=user_info.first_name%> <%=user_info.last_name%></span>
+        <a href =<%="/users/#{user_info.id}"%>><span class="user-handle"><%=user_info.handle%></a></span>
+      </li>
+    <%end%>
+  </ul>
+</main>

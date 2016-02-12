@@ -1,0 +1,26 @@
+<!-- This is the user's newsfeed page. They can only access it if they're already logged in-->
+<h1>Newsfeed</h1>
+
+<header role="banner">
+<!-- add GET buttons for profile page  -->
+<a href= <%="/users/#{@user.id}"%> class= "signup button">Profile</a>
+<!-- add a GET button to create a tweet -->
+<a href= "/tweets/new" class="signup button">Create New Tweet</a>
+</header>
+
+
+<!-- area below have the tweets of the people you follow-->
+
+<main role="main">
+  <ul class="newsfeed_tweets">
+    <% @user.feed.order(created_at: :desc).each do |tweet| %>
+      <li class= "tweet_list">
+        <span class="tweet_writer"><a href= <%="/users/#{tweet.user.id}"%>> <%=tweet.user.handle%></a></span>
+        <span class="tweet_text"><%=tweet.post%></span>-<%=tweet.created_at%>
+      </li>
+    <%end%>
+
+  </ul>
+</main>
+
+

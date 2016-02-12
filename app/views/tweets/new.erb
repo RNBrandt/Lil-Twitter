@@ -1,0 +1,22 @@
+<h1>Hey! <%= @user.first_name %>! Create a Tweet</h1>
+  <p><a href="/">[ Go Back To Newsfeed ]</a></p>
+  <p><a href="/users/<%= @user.id %>">[ Cancel Tweet ]</a></p>
+  <% if @errors %>
+  <div class="errors-wrapper">
+    <span>Your tweet could not be posted:</span>
+    <ul class="errors">
+      <% @errors.each do |error| %>
+      <li class="error"><%= error %></li>
+      <% end %>
+    </ul>
+  </div>
+  <% end %>
+
+  <form id="new_tweet" action="/users/<%= @user.id %>/tweets" method="POST">
+
+    <label for="the_tweet">Create New Tweet:<br></label><br>
+    <textarea rows="4" cols="50" name="tweet[post]"></textarea>
+    <br>
+    <input type="submit" value="Post it!" class="button">
+
+  </form>

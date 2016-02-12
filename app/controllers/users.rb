@@ -65,7 +65,7 @@ end
 
 put "/users/:id" do
   @user = User.find(params[:id])
-  @user.update(first_name: params[:first_name], last_name: params[:last_name],email: params[:email])
+  @user.update(first_name: params[:first_name], last_name: params[:last_name],email: params[:email], bio: params[:bio])
   if @user.save
     redirect "/users/#{@user.id}"
   else

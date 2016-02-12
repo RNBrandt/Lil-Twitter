@@ -16,7 +16,12 @@
     <% @user.feed.order(created_at: :desc).each do |tweet| %>
       <li class= "tweet_list">
         <span class="tweet_writer"><a href= <%="/users/#{tweet.user.id}"%>> <%=tweet.user.handle%></a></span>
-        <span class="tweet_text"><%=tweet.post%></span>-<%=tweet.created_at%>
+        <br>
+        <span class="tweet_text"><%=tweet.post%></span>
+        <br>
+        <%=tweet.created_at%>
+        <br>
+        <br>
       </li>
     <%end%>
   </ul>

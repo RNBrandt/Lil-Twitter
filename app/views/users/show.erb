@@ -5,8 +5,8 @@
 <p><%= @user.handle %></p>
 
   <ul class="follows">
-    <li class="follow"><a href="<%= "/user/#{user.id}" %>">Follow</a></li>
-    <li class="follow"><a href="<%= "/user/#{user.id}" %>">Unfollow</a></li>
+    <li class="follow"><a href="<%= "/user/#{@user.id}" %>">Follow</a></li>
+    <li class="follow"><a href="<%= "/user/#{@user.id}" %>">Unfollow</a></li>
   </ul>
 
 
@@ -21,7 +21,7 @@
 
 <main role="main">
   <ul class="user_tweet_list">
-    <%@tweets.each do |user_tweet| %>
+    <%@user.tweets.each do |user_tweet| %>
       <li class= "tweet_list">
         <span class="tweet_writer"><%=user_tweet.user.handle%></span>
         <span class="tweet_text"><%=user_tweet.post%></span>

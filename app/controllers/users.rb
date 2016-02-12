@@ -6,7 +6,6 @@ post "/users" do
     redirect "/users/#{@user.id}"
   else
     @errors = @user.errors.full_messages
-    "User already exists."
   end
 
 end

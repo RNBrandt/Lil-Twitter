@@ -5,19 +5,22 @@
 <!-- add GET buttons for profile page  -->
 <a href= "/user/:id" class= "signup button">Profile</a>
 <!-- add a GET button to create a tweet -->
-<a href= "/tweet/new" class="signup button">Create New Tweet</a>
+<a href= "/tweets/new" class="signup button">Create New Tweet</a>
 </header>
 
 
 <!-- area below have the tweets of the people you follow-->
+
 <main role="main">
   <ul class="newsfeed_tweets">
-    <%@tweets.each do |tweet| %>
+    <% @user.feed.each do |tweet| %>
       <li class= "tweet_list">
         <span class="tweet_writer"><%=tweet.user.handle%></span>
         <span class="tweet_text"><%=tweet.post%></span>
       </li>
     <%end%>
+
   </ul>
 </main>
+
 

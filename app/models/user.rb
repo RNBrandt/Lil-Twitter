@@ -22,6 +22,11 @@ class User < ActiveRecord::Base
     self.password_hash = @password
   end
 
+  def feed
+    Tweet.where("user_id in (?) OR user_id = ?", following_ids, id)
+  end
+
+
   def self.authenticate(email, password)
     user = User.find_by(email: email)
     return user if user && user.password == password

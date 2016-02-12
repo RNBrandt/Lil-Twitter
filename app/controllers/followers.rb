@@ -4,6 +4,7 @@ get '/users/:user_id/followers' do
   erb :'/user_lists/followers'
 end
 
+
 #get '/users/:user_id/followers/new' do
   #We are not able to control who follows us. this will not be used.
 # end

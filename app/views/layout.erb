@@ -15,16 +15,17 @@
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   <script src="/js/application.js"></script>
 
+
   <title> 'Lil Twitter</title>
 </head>
 <body>
-  <h1>Welcome to 'Lil Twitter</h1>
 
-  <% if logged_in? %>
+  <div class="jumbotron">
+    <h1>Welcome to 'Lil Twitter</h1>
+
+    <% if logged_in? %>
       <% @current_user = User.find(session[:id]) %>
   <ul>
-
-
     <li><a href="/" id="home" method='get'>Newsfeed</a></li>
 
     <li><a href="/users/<%= @current_user.id %>" id="your-page" method='get'>Your profile</a></li>
@@ -32,20 +33,25 @@
     <li><a href="/users/<%= @current_user.id %>/following" id="your-page" method='get'>Your following</a></li>
     <li><a href="/users/all" id="your-page" method='get'>All users</a></li>
   </ul>
-  <form method="POST" action="/sessions">
+    <form method="POST" action="/sessions">
       <input type="hidden" name="_method" value="DELETE">
       <input type="submit" value="Log Out">
     </form>
-<% else %>
-  <div class="login-reg-area">
-    <ul>
-      <li><a href="/sessions/login" id="log-in" method='get'>Log In</a></li>
-      <li><a href="/sessions/register" id"register" method="get">Register</a></li>
-    </ul>
+  </ul>
+    <% else %>
+      <div class="login-reg-area">
+        <ul>
+          <li><a href="/sessions/login" id="log-in" method='get'>Log In</a></li>
+          <li><a href="/sessions/register" id"register" method="get">Register</a></li>
+        </ul>
+      </div>
+    <% end %>
   </div>
-<% end %>
-  <div class="container">
-    <%= yield %>
+      <div class="container">
+      <%= yield %>
   </div>
 </body>
+
+
+
 </html>

@@ -1,3 +1,9 @@
+@import url(https://fonts.googleapis.com/css?family=Volkhov:400,400italic,700,700italic);
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Volkhov', serif;
+}
+
 .container {
   margin: 20px auto;
   width: 600px;
@@ -6,4 +12,16 @@
 }
 th {
   text-align: left;
+}
+
+.jumbotron {
+  background: url("/images/header.jpg") no-repeat center center fixed;
+  height: 450px;
+  margin-top: 66px;
+}
+
+.individual_answer_comments {
+  border-top: solid 1px;
+  margin-left: 2em;
+  width: 90%;
 }

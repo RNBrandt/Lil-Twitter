@@ -4,8 +4,8 @@ class User < ActiveRecord::Base
   has_many :tweets
   has_many :relationships, foreign_key: "follower_id"
   has_many :reverse_relationships, class_name: "Relationship", foreign_key:"followed_id"
-  has_many :following through: :relationships, source: :followed
-  has_many :followers through: :reverse_relationships, source: :follower
+  has_many :following, through: :relationships, source: :followed
+  has_many :followers, through: :reverse_relationships, source: :follower
 
   validates :first_name, presence: true
   validates :last_name, presence: true

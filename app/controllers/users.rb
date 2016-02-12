@@ -10,6 +10,12 @@ post "/users" do
 
 end
 
+get "/users/all" do
+  @user = User.find(session[:id])
+  @users = User.all
+    erb :"/user_lists/all_users"
+end
+
 get "/users/:id" do
   if logged_in?
     @current_user=User.find(session[:id])

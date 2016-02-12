@@ -12,8 +12,8 @@ end
 
 get "/users/:id" do
   if logged_in?
-  @user = User.find(session[:id])
-  current_user == @user
+    @current_user=User.find(session[:id])
+    @user = User.find(params[:id])
     erb :"/users/show"
   else
     @errors = "Please login to your account to see your site"
@@ -23,12 +23,32 @@ get "/users/:id" do
 end
 
 get "/users/:id/edit" do
+  @current_user=User.find(session[:id])
   @user_being_viewed = User.find(params[:id])
   if current_user == @user_being_viewed
     erb :"/users/edit"
   else
     @errors = @user.errors.full_messages
     erb :"/users/_not_logged_in_not_current_user_error_message"
+  end
+end
+
+
+get "/users/:id/follow" do
+  @current_user = User.find(session[:id])
+  @user = User.find(params[:id])
+  if !@current_user.following?(@user)
+    @current_user.follow(@user)
+    redirect "/users/#{params[:id]}"
+  end
+end
+
+get "/users/:id/unfollow" do
+  @current_user = User.find(session[:id])
+  @user = User.find(params[:id])
+  if @current_user.following?(@user)
+    @current_user.unfollow(@user)
+    redirect "/users/#{params[:id]}"
   end
 end
 

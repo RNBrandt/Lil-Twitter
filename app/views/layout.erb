@@ -15,31 +15,37 @@
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   <script src="/js/application.js"></script>
 
+
   <title> 'Lil Twitter</title>
 </head>
 <body>
-  <h1>Welcome to 'Lil Twitter</h1>
+  <div class="jumbotron">
+    <h1>Welcome to 'Lil Twitter</h1>
 
-  <% if logged_in? %>
-  <ul>
-    <li><a href="/" id="home" method='get'>Go Home</a></li>
-
-    <form method="POST" action="/sessions">
-      <input type="hidden" name="_method" value="DELETE">
-      <input type="submit" value="Log Out">
-    </form>
-    <li><a href="/users/<%= @user.id %>" id="your-page" method='get'>Your page</a></li>
-  </li></ul>
-<% else %>
-  <div class="login-reg-area">
+    <% if logged_in? %>
     <ul>
-      <li><a href="/sessions/login" id="log-in" method='get'>Log In</a></li>
-      <li><a href="/sessions/register" id"register" method="get">Register</a></li>
-    </ul>
+      <li><a href="/" id="home" method='get'>Go Home</a></li>
+
+      <form method="POST" action="/sessions">
+        <input type="hidden" name="_method" value="DELETE">
+        <input type="submit" value="Log Out">
+      </form>
+      <li><a href="/users/<%= @user.id %>" id="your-page" method='get'>Your page</a></li>
+    </li></ul>
+    <% else %>
+      <div class="login-reg-area">
+        <ul>
+          <li><a href="/sessions/login" id="log-in" method='get'>Log In</a></li>
+          <li><a href="/sessions/register" id"register" method="get">Register</a></li>
+        </ul>
+      </div>
+    <% end %>
   </div>
-<% end %>
-  <div class="container">
-    <%= yield %>
+      <div class="container">
+      <%= yield %>
   </div>
 </body>
+
+
+
 </html>

@@ -12,15 +12,12 @@
 <!-- area below have the tweets of the people you follow-->
 
 <main role="main">
-  <ul class="newsfeed_tweets">
-    <% @user.feed.each do |tweet| %>
-      <li class= "tweet_list">
-        <span class="tweet_writer"><a href= <%="/users/#{tweet.user.id}"%>> <%=tweet.user.handle%></a></span>
-        <span class="tweet_text"><%=tweet.post%></span>
-      </li>
-    <%end%>
-
-  </ul>
+  <% @user.feed.each do |tweet| %>
+    <div class="individual_answer_comments">
+      <span class="tweet_writer"><a href= <%="/users/#{tweet.user.id}"%>> <%=tweet.user.handle%></a></span>
+      <span class="tweet_text"><%=tweet.post%></span>
+    </div>
+  <%end%>
 </main>
 
 

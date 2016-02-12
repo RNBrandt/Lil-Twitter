@@ -1,3 +1,8 @@
+get "/users" do
+  @user=User.all
+  erb :"user_lists/all_users"
+end
+
 post "/users" do
   @user = User.new(first_name: params[:first_name], last_name: params[:last_name], email: params[:email], password: params[:password], handle: params[:handle], bio: params[:bio])
 

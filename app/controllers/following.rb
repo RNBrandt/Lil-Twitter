@@ -1,4 +1,7 @@
 get '/users/:user_id/following' do
+  @person=User.find(params[:user_id])
+  @following_list=@person.following
+  erb :'user_lists/following'
   # Will show a list of all the users THIS user is following
 end
 
@@ -6,13 +9,13 @@ end
 # We probably won't need this since all we need is a POST
 # end
 
-post '/users/:user_id/following' do
-  # we will need to set the @followed variable and set that user id into the appropriate value in the user object.
-end
+# post '/users/:user_id/following' do
+#   # we will need to set the @followed variable and set that user id into the appropriate value in the user object. David already did this
+# end
 
-delete '/users/:user_id/following/:followed_id' do
-# will delete what a person is following
-  end
+# delete '/users/:user_id/following/:followed_id' do
+# # will delete what a person is following
+#   end
 
 
 

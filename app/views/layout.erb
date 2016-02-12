@@ -29,7 +29,7 @@
     <li><a href="/users/<%= @user.id %>" id="your-page" method='get'>Your profile</a></li>
     <li><a href="/users/<%= @user.id %>/followers" id="your-page" method='get'>Your followers</a></li>
     <li><a href="/users/<%= @user.id %>/following" id="your-page" method='get'>Your following</a></li>
-  </li></ul>
+  </ul>
   <form method="POST" action="/sessions">
       <input type="hidden" name="_method" value="DELETE">
       <input type="submit" value="Log Out">

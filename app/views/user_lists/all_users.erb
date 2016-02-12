@@ -1,0 +1,14 @@
+<h1> All Lil' Twitter Users</h1>
+<a href= "/user/:id" class= "signup button">Return to your Profile</a>
+<a href= "/" class="signup button">Return to the Newsfeed</a>
+
+<main role="main">
+  <ul class="complete-user-list">
+    <%@user.each do |user_info| %>
+      <li class= "user-list">
+        <span class="user-name"><%=user_info.first_name%><%=user_info.last_name%></span>
+        <span class="user-handle"><%=user_info.handle%></span>
+      </li>
+    <%end%>
+  </ul>
+</main>

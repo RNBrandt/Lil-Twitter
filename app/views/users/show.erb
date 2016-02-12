@@ -1,11 +1,28 @@
 <h1>Welcome <%= @user.first_name %></h1>
-<a href="/">[ Go Back To Home Page ]</a>
+<a href="/">[ Go Back To Newsfeed ]</a>
 <!-- retrofit for twitter profile page -->
+<p>Handle:</p>
+<p><%= @user.handle %></p>
+
 <p>Name:</p>
 <p><%= @user.first_name %> <%= @user.last_name %> </p>
 
 <p>Email:</p>
 <p><%= @user.email %> </p>
+
+<p>Bio:</p>
+<p><%= @user.bio%> </p>
+
+<main role="main">
+  <ul class="user_tweet_list">
+    <%@tweets.each do |user_tweet| %>
+      <li class= "tweet_list">
+        <span class="tweet_writer"><%=user_tweet.user.handle%></span>
+        <span class="tweet_text"><%=user_tweet.post%></span>
+      </li>
+    <%end%>
+  </ul>
+</main>
 
 <% if session[:id] === @user.id %>
   <form method="GET" action="/users/<%= @user.id %>/edit">

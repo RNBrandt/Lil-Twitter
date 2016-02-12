@@ -14,8 +14,8 @@
   <ul class="newsfeed_tweets">
     <%@tweets.each do |tweet| %>
       <li class= "tweet_list">
-        <span class="tweet_writer"><%=tweet.user_id%></span>
-        <span class="tweet_text"><%=tweet.text%></span>
+        <span class="tweet_writer"><%=tweet.user.handle%></span>
+        <span class="tweet_text"><%=tweet.post%></span>
       </li>
     <%end%>
   </ul>

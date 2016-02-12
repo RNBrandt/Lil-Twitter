@@ -13,10 +13,10 @@
 
 <main role="main">
   <ul class="newsfeed_tweets">
-    <% @user.feed.each do |tweet| %>
+    <% @user.feed.order(created_at: :desc).each do |tweet| %>
       <li class= "tweet_list">
         <span class="tweet_writer"><a href= <%="/users/#{tweet.user.id}"%>> <%=tweet.user.handle%></a></span>
-        <span class="tweet_text"><%=tweet.post%></span>
+        <span class="tweet_text"><%=tweet.post%></span>-<%=tweet.created_at%>
       </li>
     <%end%>
 

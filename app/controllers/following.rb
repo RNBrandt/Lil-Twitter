@@ -11,6 +11,8 @@ post '/users/:user_id/following' do
 end
 
 delete '/users/:user_id/following/:followed_id' do
+# will delete what a person is following
+  end
 
 
 

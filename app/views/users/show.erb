@@ -27,11 +27,20 @@
 <p>Bio:</p>
 <p><%= @user.bio%> </p>
 
+
 <main role="main">
   <ul class="user_tweet_list">
-    <%@user.tweets.order(created_at: :desc).each do |user_tweet| %>
+    <% @user.tweets.order(created_at: :desc).each do |user_tweet| %>
       <li class= "tweet_list">
+        <div class="individual_answer_comments">
+        <span class="tweet_writer"><%=user_tweet.user.handle%></a></span>
+        <br>
         <span class="tweet_text"><%=user_tweet.post%></span>
+        <br>
+        <%=user_tweet.created_at%>
+        </div>
+        <br>
+        <br>
       </li>
     <%end%>
   </ul>

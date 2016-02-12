@@ -15,11 +15,13 @@
   <ul class="newsfeed_tweets">
     <% @user.feed.order(created_at: :desc).each do |tweet| %>
       <li class= "tweet_list">
+        <div class="individual_answer_comments">
         <span class="tweet_writer"><a href= <%="/users/#{tweet.user.id}"%>> <%=tweet.user.handle%></a></span>
         <br>
         <span class="tweet_text"><%=tweet.post%></span>
         <br>
         <%=tweet.created_at%>
+        </div>
         <br>
         <br>
       </li>

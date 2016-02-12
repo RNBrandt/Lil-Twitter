@@ -22,14 +22,18 @@
 
   <% if logged_in? %>
   <ul>
-    <li><a href="/" id="home" method='get'>Go Home</a></li>
 
-    <form method="POST" action="/sessions">
+
+    <li><a href="/" id="home" method='get'>Newsfeed</a></li>
+
+    <li><a href="/users/<%= @user.id %>" id="your-page" method='get'>Your profile</a></li>
+    <li><a href="/users/<%= @user.id %>/followers" id="your-page" method='get'>Your followers</a></li>
+    <li><a href="/users/<%= @user.id %>/following" id="your-page" method='get'>Your following</a></li>
+  </li></ul>
+  <form method="POST" action="/sessions">
       <input type="hidden" name="_method" value="DELETE">
       <input type="submit" value="Log Out">
     </form>
-    <li><a href="/users/<%= @user.id %>" id="your-page" method='get'>Your page</a></li>
-  </li></ul>
 <% else %>
   <div class="login-reg-area">
     <ul>

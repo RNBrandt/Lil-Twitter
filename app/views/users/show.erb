@@ -5,10 +5,11 @@
 <p><%= @user.handle %></p>
 
 <ul class="follows">
-    <% if !@current_user.following?(@user) %>
-      <li class="follow"><a href="<%= "/users/#{@user.id}/follow" %>">Follow</a></li>
-      <% else %>
+    <% if @current_user.following?(@user) %>
       <li class="follow"><a href="<%= "/users/#{@user.id}/unfollow" %>">Unfollow</a></li>
+    <% elsif @current_user == @user %>
+    <% else @current_user == @user %>
+      <li class="follow"><a href="<%= "/users/#{@user.id}/follow" %>">Follow</a></li>
    <%end%>
  </ul>
 
@@ -23,9 +24,8 @@
 
 <main role="main">
   <ul class="user_tweet_list">
-    <%@user.tweets.each do |user_tweet| %>
+    <%@user.tweets.order(created_at: :desc).each do |user_tweet| %>
       <li class= "tweet_list">
-        <span class="tweet_writer"><%=user_tweet.user.handle%></span>
         <span class="tweet_text"><%=user_tweet.post%></span>
       </li>
     <%end%>

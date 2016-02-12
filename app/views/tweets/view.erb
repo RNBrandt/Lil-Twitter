@@ -1,0 +1,13 @@
+<!-- change this to fit tweeting -->
+<div class="container">
+  <h4><%= @tweet.user.handle %></h4>
+    <br>
+    <p> <%= @tweet.post %></p>
+    <br>
+<!--     <a href= "/users/<%=current_user.id%>/tweets" class="sign button">Retweet</a> -->
+</div>
+<div class="links">
+<a href= "/user/:id" class= "signup button">Return to your Profile</a>
+<a href= "/" class="signup button">Return to the Newsfeed</a>
+
+</div>

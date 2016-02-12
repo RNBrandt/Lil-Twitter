@@ -1,0 +1,12 @@
+<h1><%= @user.handle %>'s Following</h1>
+
+<main role="main">
+  <ul class="follower_list">
+    <%@user.following.each do |followed| %>
+      <li class= "follow_list">
+        <span class="tweet_writer"><%=followed.first_name%> <%=followed.last_name %></span>
+        <span class="tweet_text"><a href =<%="/users/#{followed.id}"%>><%= followed.handle %></a></span>
+      </li>
+    <%end%>
+  </ul>
+</main>

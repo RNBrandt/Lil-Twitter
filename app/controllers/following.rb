@@ -1,18 +1,3 @@
-# tweets controller
-get '/tweets' do
-  # This will take set a User variable, and erb to
-end
-
-
-
-
-
-
-
-
-
-
-
 
 
 

@@ -3,6 +3,11 @@
 <!-- retrofit for twitter profile page -->
 <p>Handle:</p>
 <p><%= @user.handle %></p>
+<ul>
+  <li><a href="/users/<%= @user.id %>/followers" id="your-page" method='get'><%= @user.followers.count %> Followers</a></li>
+  <li><a href="/users/<%= @user.id %>/following" id="your-page" method='get'><%= @user.following.count %> Following</a></li>
+</ul>
+
 
 <ul class="follows">
     <% if @current_user.following?(@user) %>

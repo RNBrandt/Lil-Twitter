@@ -3,6 +3,25 @@ get '/tweets' do
   # This will take set a User variable, and erb to
 end
 
+get '/tweets/new' do
+  if logged_in?
+    @user = User.find(session[:id])
+    erb :'tweets/new'
+  else
+    redirect '/sessions/login'
+  end
+end
+
+post '/users/:user_id/tweets' do
+  @tweet = Tweet.new (params[:tweet])
+  @tweet.user_id =(params[:user_id])
+  if @tweet.save
+    redirect "/"
+  else
+    @errors = tweet.errors.full_messages
+    erb :'tweets/new'
+  end
+end
 
 
 

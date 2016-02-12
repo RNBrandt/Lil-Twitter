@@ -1,14 +1,16 @@
-<h1>Welcome <%= @user.first_name %></h1>
+<h1><%= @user.first_name %> <%= @user.last_name %></h1>
 <a href="/">[ Go Back To Newsfeed ]</a>
 <!-- retrofit for twitter profile page -->
 <p>Handle:</p>
 <p><%= @user.handle %></p>
 
-  <ul class="follows">
-    <li class="follow"><a href="<%= "/user/#{user.id}" %>">Follow</a></li>
-    <li class="follow"><a href="<%= "/user/#{user.id}" %>">Unfollow</a></li>
-  </ul>
-
+<ul class="follows">
+    <% if !@current_user.following?(@user) %>
+      <li class="follow"><a href="<%= "/users/#{@user.id}/follow" %>">Follow</a></li>
+      <% else %>
+      <li class="follow"><a href="<%= "/users/#{@user.id}/unfollow" %>">Unfollow</a></li>
+   <%end%>
+ </ul>
 
 <p>Name:</p>
 <p><%= @user.first_name %> <%= @user.last_name %> </p>
@@ -21,7 +23,7 @@
 
 <main role="main">
   <ul class="user_tweet_list">
-    <%@tweets.each do |user_tweet| %>
+    <%@user.tweets.each do |user_tweet| %>
       <li class= "tweet_list">
         <span class="tweet_writer"><%=user_tweet.user.handle%></span>
         <span class="tweet_text"><%=user_tweet.post%></span>

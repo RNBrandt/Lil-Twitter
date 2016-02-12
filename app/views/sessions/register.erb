@@ -1,5 +1,15 @@
 <h1>Create A New User Account</h1>
 
+<% if @errors %>
+  <div class="errors-wrapper">
+    <span>Your profile could not be saved:</span>
+    <ul class="errors">
+      <% @errors.each do |error| %>
+      <li class="error"><%= error %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
 <form id="new_user" action="/users" method="POST">
   <label for="the_first_name">First Name:<br>
     <input type="text" name="first_name" placeholder="First Name">

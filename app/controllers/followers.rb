@@ -1,8 +1,7 @@
 get '/users/:user_id/followers' do
 #This will render a list of all the folks the user is following
-  @person=User.find(params[:user_id])
-  @followers_list=@person.followers
-  erb :'user_lists/followers'
+  @user = User.find(params[:user_id])
+  erb :'/user_lists/followers'
 end
 
 

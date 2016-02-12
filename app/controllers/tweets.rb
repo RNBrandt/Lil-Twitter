@@ -12,13 +12,19 @@ get '/tweets/new' do
   end
 end
 
+get '/tweets/:id' do
+    @tweet = Tweet.find(session[:id])
+    erb :'tweets/view'
+end
+
 post '/users/:user_id/tweets' do
   @tweet = Tweet.new (params[:tweet])
   @tweet.user_id =(params[:user_id])
   if @tweet.save
     redirect "/"
   else
-    @errors = tweet.errors.full_messages
+    @errors = @tweet.errors.full_messages
+    @user = User.find(session[:id])
     erb :'tweets/new'
   end
 end

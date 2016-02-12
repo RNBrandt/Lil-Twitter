@@ -3,12 +3,18 @@
 <!-- retrofit for twitter profile page -->
 <p>Handle:</p>
 <p><%= @user.handle %></p>
+<ul>
+  <li><a href="/users/<%= @user.id %>/followers" id="your-page" method='get'><%= @user.followers.count %> Followers</a></li>
+  <li><a href="/users/<%= @user.id %>/following" id="your-page" method='get'><%= @user.following.count %> Following</a></li>
+</ul>
+
 
 <ul class="follows">
-    <% if !@current_user.following?(@user) %>
-      <li class="follow"><a href="<%= "/users/#{@user.id}/follow" %>">Follow</a></li>
-      <% else %>
+    <% if @current_user.following?(@user) %>
       <li class="follow"><a href="<%= "/users/#{@user.id}/unfollow" %>">Unfollow</a></li>
+    <% elsif @current_user == @user %>
+    <% else @current_user == @user %>
+      <li class="follow"><a href="<%= "/users/#{@user.id}/follow" %>">Follow</a></li>
    <%end%>
  </ul>
 
@@ -23,9 +29,8 @@
 
 <main role="main">
   <ul class="user_tweet_list">
-    <%@user.tweets.each do |user_tweet| %>
+    <%@user.tweets.order(created_at: :desc).each do |user_tweet| %>
       <li class= "tweet_list">
-        <span class="tweet_writer"><%=user_tweet.user.handle%></span>
         <span class="tweet_text"><%=user_tweet.post%></span>
       </li>
     <%end%>

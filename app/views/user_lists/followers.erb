@@ -1,0 +1,11 @@
+<h1> All Your Followers</h1>
+<main role="main">
+  <ul class="follower_list">
+    <%@tweets.each do |follower| %>
+      <li class= "follow_list">
+        <span class="tweet_writer"><%=user_tweet.user.handle%></span>
+        <span class="tweet_text"><%=user_tweet.post%></span>
+      </li>
+    <%end%>
+  </ul>
+</main>

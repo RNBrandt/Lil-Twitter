@@ -1,22 +1,13 @@
 <!-- change this to fit tweeting -->
 <div class="container">
-  <h1> CraigsList Jr.</h1>
-  <h2><%= @article.name %></h2>
-  <br>
-    <p> <%= @article.description %> </p>
+  <h4><%= @tweet.user.handle %></h4>
     <br>
+    <p> <%= @tweet.post %> </p>
     <br>
-    <p> $ <%= @article.price %> </p>
-    <br>
-    <br>
-    <p> <%= @article.contact_info %> </p>
-    <br>
-    <br>
-    <a href="/categories/<%= @article.category_id %>">Back Category Listings</a>
-
-    <% if @article.counter < 2 %>
-      <h1>THIS IS YOUR ONLY CHANCE TO GET AN EDIT URL, IF YOU WANT TO EDIT YOUR POST PLEASE KEEP THIS</h1>
-      <p>http://localhost:9393/categories/<%= @article.category_id %>/articles/<%= @article.id %>/edit?secret=<%= @article.secret %> </p>
-    <% end %>
+    <a href= "/users/<%=current_user.id%>/tweets" class="sign button">Retweet</a>
 </div>
-<% %><% %>
+<div class="links">
+<a href= "/user/:id" class= "signup button">Return to your Profile</a>
+<a href= "/" class="signup button">Return to the Newsfeed</a>
+
+</div>

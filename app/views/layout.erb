@@ -33,22 +33,11 @@
     <li><a href="/users/<%= @current_user.id %>/following" id="your-page" method='get'>Your following</a></li>
     <li><a href="/users/all" id="your-page" method='get'>All users</a></li>
   </ul>
-  <form method="POST" action="/sessions">
+    <form method="POST" action="/sessions">
       <input type="hidden" name="_method" value="DELETE">
       <input type="submit" value="Log Out">
     </form>
-<% else %>
-  <div class="login-reg-area">
-
-    <ul>
-      <li><a href="/" id="home" method='get'>Go Home</a></li>
-
-      <form method="POST" action="/sessions">
-        <input type="hidden" name="_method" value="DELETE">
-        <input type="submit" value="Log Out">
-      </form>
-      <li><a href="/users/<%= @user.id %>" id="your-page" method='get'>Your page</a></li>
-    </li></ul>
+  </ul>
     <% else %>
       <div class="login-reg-area">
         <ul>

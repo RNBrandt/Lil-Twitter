@@ -1,4 +1,16 @@
+get '/users/:user_id/following' do
+  # Will show a list of all the users THIS user is following
+end
 
+# get '/users/:user_id/following/new' do
+# We probably won't need this since all we need is a POST
+# end
+
+post '/users/:user_id/following' do
+  # we will need to set the @followed variable and set that user id into the appropriate value in the user object.
+end
+
+delete '/users/:user_id/following/:followed_id' do
 
 
 
